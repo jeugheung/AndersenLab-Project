@@ -8,6 +8,8 @@
 import UIKit
 
 class StockListViewController: UIViewController {
+    
+    private var searchTimer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class StockListViewController: UIViewController {
     
     private func setUpSearchController() {
         let resultVC = SearchViewController()
+        resultVC.delegate = self
         let searchVC = UISearchController(searchResultsController: resultVC)
         searchVC.searchResultsUpdater = self
         navigationItem.searchController = searchVC
@@ -43,10 +46,28 @@ extension StockListViewController: UISearchResultsUpdating {
             return
         }
         
-        /// Call API to search
+        searchTimer?.invalidate()
         
-        print(query)
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
+            APICaller.shared.search(query: query) { result in
+                switch result {
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        resultsVC.update(with: response.result)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        resultsVC.update(with: [])
+                    }
+                    print(error)
+                }
+            }
+        })
     }
-    
 }
 
+extension StockListViewController: SearchViewControllerDelegate {
+    func searchResultsViewControllerDidSelect(searchResult: SearchResults) {
+        print("Did select: \(searchResult.displaySymbol)")
+    }
+}

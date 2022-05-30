@@ -18,6 +18,7 @@
 		C93E651D283EF1320099224F /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E651C283EF1320099224F /* APICaller.swift */; };
 		C93E651F283EF15D0099224F /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E651E283EF15D0099224F /* PersistanceManager.swift */; };
 		C93E6521283EF17F0099224F /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6520283EF17F0099224F /* HapticsManager.swift */; };
+		C9EABC692844E055005FA525 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC682844E055005FA525 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C93E651C283EF1320099224F /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		C93E651E283EF15D0099224F /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		C93E6520283EF17F0099224F /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		C9EABC682844E055005FA525 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		C93E64FC283EE8600099224F /* Stocks-And */ = {
 			isa = PBXGroup;
 			children = (
+				C9EABC672844E037005FA525 /* Extensions */,
 				C93E6515283EE9D40099224F /* Appliation */,
 				C93E6514283EE9BB0099224F /* Managers */,
 				C93E6513283EE9970099224F /* Controllers */,
@@ -120,6 +123,14 @@
 				C93E64FF283EE8600099224F /* SceneDelegate.swift */,
 			);
 			path = Appliation;
+			sourceTree = "<group>";
+		};
+		C9EABC672844E037005FA525 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C9EABC682844E055005FA525 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				C93E6519283EEACA0099224F /* SearchViewController.swift in Sources */,
 				C93E6502283EE8600099224F /* StockListViewController.swift in Sources */,
 				C93E651D283EF1320099224F /* APICaller.swift in Sources */,
+				C9EABC692844E055005FA525 /* Extensions.swift in Sources */,
 				C93E6517283EEAB30099224F /* TopStoriesNewsViewController.swift in Sources */,
 				C93E64FE283EE8600099224F /* AppDelegate.swift in Sources */,
 				C93E6500283EE8600099224F /* SceneDelegate.swift in Sources */,

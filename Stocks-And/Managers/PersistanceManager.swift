@@ -6,3 +6,36 @@
 //
 
 import Foundation
+
+final class PersistanceManager {
+    static let shared = PersistanceManager()
+    
+    private let userDefaults: UserDefaults = .standard
+    
+    private struct Constants {
+        
+    }
+    
+    private init() {
+        
+    }
+    
+    // MARK: - Public
+    public var watchList: [String] {
+        return []
+    }
+    
+    public func addToWatchList() {
+        
+    }
+    
+    public func removeFromWatchList() {
+        
+    }
+    
+    // MARK: - Public
+    
+    private var hasOnboarded: Bool {
+        return false
+    }
+}

@@ -6,19 +6,31 @@
 //
 
 import UIKit
+import FloatingPanel
 
 class StockListViewController: UIViewController {
     
     private var searchTimer: Timer?
+    private var panel: FloatingPanelController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpSearchController()
+        setupFloatingPanel()
         setUpTitleView()
     }
     
     // MARK: - Private
+    private func setupFloatingPanel() {
+        let vc = TopStoriesNewsViewController()
+        let panel = FloatingPanelController(delegate: self)
+        panel.surfaceView.backgroundColor = .systemGray
+        panel.set(contentViewController: vc)
+        panel.addPanel(toParent: self)
+        panel.track(scrollView: vc.tableView)
+    }
+    
     
     private func setUpTitleView() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: navigationController?.navigationBar.height ?? 100))
@@ -69,5 +81,17 @@ extension StockListViewController: UISearchResultsUpdating {
 extension StockListViewController: SearchViewControllerDelegate {
     func searchResultsViewControllerDidSelect(searchResult: SearchResults) {
         print("Did select: \(searchResult.displaySymbol)")
+        
+        navigationItem.searchController?.searchBar.resignFirstResponder()
+        let vc = StockDetailsViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        vc.title = searchResult.description
+        present(navVC, animated: true)
+    }
+}
+
+extension StockListViewController: FloatingPanelControllerDelegate {
+    func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
+        navigationItem.titleView?.isHidden = fpc.state == .full
     }
 }

@@ -21,6 +21,7 @@
 		C9EABC692844E055005FA525 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC682844E055005FA525 /* Extensions.swift */; };
 		C9EABC6B2844E572005FA525 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC6A2844E572005FA525 /* SearchTableViewCell.swift */; };
 		C9EABC6D2844F31E005FA525 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC6C2844F31E005FA525 /* SearchResponse.swift */; };
+		C9EABC93284AACFF005FA525 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = C9EABC92284AACFF005FA525 /* FloatingPanel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EABC93284AACFF005FA525 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +157,9 @@
 			dependencies = (
 			);
 			name = "Stocks-And";
+			packageProductDependencies = (
+				C9EABC92284AACFF005FA525 /* FloatingPanel */,
+			);
 			productName = "Stocks-And";
 			productReference = C93E64FA283EE8600099224F /* Stocks-And.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +188,9 @@
 				Base,
 			);
 			mainGroup = C93E64F1283EE8600099224F;
+			packageReferences = (
+				C9EABC91284AACFF005FA525 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+			);
 			productRefGroup = C93E64FB283EE8600099224F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9EABC91284AACFF005FA525 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9EABC92284AACFF005FA525 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9EABC91284AACFF005FA525 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C93E64F2283EE8600099224F /* Project object */;
 }

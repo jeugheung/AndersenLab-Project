@@ -23,9 +23,9 @@ class StockListViewController: UIViewController {
     
     // MARK: - Private
     private func setupFloatingPanel() {
-        let vc = TopStoriesNewsViewController()
+        let vc = NewsViewController(type: .topStories)
         let panel = FloatingPanelController(delegate: self)
-        panel.surfaceView.backgroundColor = .systemGray
+        panel.surfaceView.backgroundColor = .systemBackground
         panel.set(contentViewController: vc)
         panel.addPanel(toParent: self)
         panel.track(scrollView: vc.tableView)

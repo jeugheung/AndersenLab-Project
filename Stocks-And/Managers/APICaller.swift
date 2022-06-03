@@ -25,6 +25,10 @@ final class APICaller {
         request(url: url(for: .search, queryParams: ["q": safeQuery]), expecting: SearchResponse.self, completion: completion)
     }
     
+    public func news(for type: NewsViewController.typeOfTable, completion: @escaping (Result<[String], Error>) -> Void) {
+        
+    }
+    
     
     // MARK: - Private
     

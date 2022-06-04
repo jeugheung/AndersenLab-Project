@@ -23,7 +23,7 @@ class StockListViewController: UIViewController {
     
     // MARK: - Private
     private func setupFloatingPanel() {
-        let vc = NewsViewController(type: .topStories)
+        let vc = NewsViewController(type: .company(symbol: "SNAP"))
         let panel = FloatingPanelController(delegate: self)
         panel.surfaceView.backgroundColor = .systemBackground
         panel.set(contentViewController: vc)

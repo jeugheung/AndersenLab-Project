@@ -10,7 +10,7 @@ import Foundation
 final class APICaller {
     static let shared = APICaller()
     
-    private struct Constant {
+    private struct Constants {
         static let apiKey = "caab792ad3ibg8178etg"
         static let sandboxApiKey = "sandbox_caab792ad3ibg8178eu0"
         static let baseUrl = "https://finnhub.io/api/v1/"
@@ -53,7 +53,7 @@ final class APICaller {
     }
     
     private func url(for endpoint: Endpoint, queryParams: [String: String] = [:]) -> URL? {
-        var urlString = Constant.baseUrl + endpoint.rawValue
+        var urlString = Constants.baseUrl + endpoint.rawValue
         /// add any parameters
         var queryItems = [URLQueryItem]()
         
@@ -62,7 +62,7 @@ final class APICaller {
         }
                 
         /// add token
-        queryItems.append(.init(name: "token", value: Constant.apiKey))
+        queryItems.append(.init(name: "token", value: Constants.apiKey))
         
         let queryString = queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
         urlString += "?" + queryString

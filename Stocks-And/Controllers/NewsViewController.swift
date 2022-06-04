@@ -23,7 +23,7 @@ class NewsViewController: UIViewController {
         }
     }
     
-    private var stories = [String]()
+    private var stories = [NewsStory]()
     private let type: typeOfTable
 
     

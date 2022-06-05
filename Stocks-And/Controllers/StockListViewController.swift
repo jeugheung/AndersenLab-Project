@@ -12,11 +12,15 @@ class StockListViewController: UIViewController {
     
     private var searchTimer: Timer?
     private var panel: FloatingPanelController?
+    static var maxChangeWidth: CGFloat = 0
+    
+    
     private var watchListMap: [String: [CandleStick]] = [:]
     private var viewModels: [WatchListTableViewCell.ViewModel] = []
     
     private let tableView: UITableView = {
         let table = UITableView()
+        table.register(WatchListTableViewCell.self, forCellReuseIdentifier: WatchListTableViewCell.identifier)
         return table
     }()
 
@@ -28,6 +32,11 @@ class StockListViewController: UIViewController {
         setUpWatchListData()
         setupFloatingPanel()
         setUpTitleView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
     }
     
     // MARK: - Private
@@ -64,7 +73,7 @@ class StockListViewController: UIViewController {
         
         for (symbol, candleSticks) in watchListMap {
             let changePercentage = getChangePercentage(symbol: symbol, for: candleSticks)
-            viewModels.append(.init(symbol: symbol, companyName: UserDefaults.standard.string(forKey: symbol) ?? "Company", price: getLatestClosingPrice(from: candleSticks), changeColor: changePercentage < 0 ? .systemRed : .systemGreen, changePercentage: String.percentage(from: changePercentage)))
+            viewModels.append(.init(symbol: symbol, companyName: UserDefaults.standard.string(forKey: symbol) ?? "Company", price: getLatestClosingPrice(from: candleSticks), changeColor: changePercentage < 0 ? .systemRed : .systemGreen, changePercentage: String.percentage(from: changePercentage), chartViewModel: .init(data: candleSticks.reversed().map { $0.close }, showLegend: false, showAxis: false)))
         }
         
         print("\n\n\(viewModels)\n\n")
@@ -176,14 +185,29 @@ extension StockListViewController: FloatingPanelControllerDelegate {
 
 extension StockListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchListMap.count
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: WatchListTableViewCell.identifier, for: indexPath) as? WatchListTableViewCell else {
+            fatalError()
+        }
+        cell.delegate = self
+        cell.configure(with: viewModels[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return WatchListTableViewCell.preferHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension StockListViewController: WatchListTableViewCellDelegate {
+    func didUpdateMaxWidth() {
+        tableView.reloadData()
     }
 }

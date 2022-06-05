@@ -26,6 +26,7 @@
 		C9EABC97284AC432005FA525 /* NewsStoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC96284AC432005FA525 /* NewsStoryModel.swift */; };
 		C9EABC99284B2117005FA525 /* NewsStoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC98284B2116005FA525 /* NewsStoryTableViewCell.swift */; };
 		C9EABC9C284B47F5005FA525 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C9EABC9B284B47F5005FA525 /* SDWebImage */; };
+		C9EABCA3284CF932005FA525 /* MarketDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCA2284CF932005FA525 /* MarketDataResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		C9EABC94284AB651005FA525 /* NewsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderView.swift; sourceTree = "<group>"; };
 		C9EABC96284AC432005FA525 /* NewsStoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStoryModel.swift; sourceTree = "<group>"; };
 		C9EABC98284B2116005FA525 /* NewsStoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStoryTableViewCell.swift; sourceTree = "<group>"; };
+		C9EABCA2284CF932005FA525 /* MarketDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDataResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				C9EABC6C2844F31E005FA525 /* SearchResponse.swift */,
 				C9EABC96284AC432005FA525 /* NewsStoryModel.swift */,
+				C9EABCA2284CF932005FA525 /* MarketDataResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				C93E651D283EF1320099224F /* APICaller.swift in Sources */,
 				C9EABC692844E055005FA525 /* Extensions.swift in Sources */,
 				C9EABC99284B2117005FA525 /* NewsStoryTableViewCell.swift in Sources */,
+				C9EABCA3284CF932005FA525 /* MarketDataResponse.swift in Sources */,
 				C93E6517283EEAB30099224F /* NewsViewController.swift in Sources */,
 				C9EABC6D2844F31E005FA525 /* SearchResponse.swift in Sources */,
 				C9EABC95284AB651005FA525 /* NewsHeaderView.swift in Sources */,

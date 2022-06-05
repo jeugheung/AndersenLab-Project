@@ -12,18 +12,61 @@ class StockListViewController: UIViewController {
     
     private var searchTimer: Timer?
     private var panel: FloatingPanelController?
+    private var watchListMap: [String: [CandleStick]] = [:]
+    private var viewModels: [String] = []
+    
+    private let tableView: UITableView = {
+        let table = UITableView()
+        return table
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpSearchController()
+        setUpTableView()
+        setUpWatchListData()
         setupFloatingPanel()
         setUpTitleView()
     }
     
     // MARK: - Private
+    private func setUpWatchListData() {
+        let symbols = PersistanceManager.shared.watchList
+        
+        let group = DispatchGroup()
+        
+        for symbol in symbols {
+            group.enter()
+            APICaller.shared.marketData(for: symbol) { [weak self] result in
+                defer {
+                    group.leave()
+                }
+                
+                switch result {
+                case .success(let data):
+                    let candleSticks = data.candleSticks
+                    self?.watchListMap[symbol] = candleSticks
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
+        group.notify(queue: .main) { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func setUpTableView() {
+        view.addSubviews(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    
     private func setupFloatingPanel() {
-        let vc = NewsViewController(type: .company(symbol: "SNAP"))
+        let vc = NewsViewController(type: .topStories)
         let panel = FloatingPanelController(delegate: self)
         panel.surfaceView.backgroundColor = .systemBackground
         panel.set(contentViewController: vc)
@@ -93,5 +136,19 @@ extension StockListViewController: SearchViewControllerDelegate {
 extension StockListViewController: FloatingPanelControllerDelegate {
     func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
         navigationItem.titleView?.isHidden = fpc.state == .full
+    }
+}
+
+extension StockListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return watchListMap.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -27,7 +27,6 @@ class NewsStoryTableViewCell: UITableViewCell {
         }
     }
     
-    ///
     private let sourceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
@@ -50,7 +49,7 @@ class NewsStoryTableViewCell: UITableViewCell {
     
     private let storyImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .yellow
+        imageView.backgroundColor = .secondarySystemBackground
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 6

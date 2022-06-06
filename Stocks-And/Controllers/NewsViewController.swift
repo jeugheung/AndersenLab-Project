@@ -17,7 +17,7 @@ class NewsViewController: UIViewController {
         var title: String {
             switch self {
             case .topStories:
-                return "Top Stories"
+                return "Top News"
             case .company(let symbol):
                 return symbol.uppercased()
             }
@@ -32,7 +32,7 @@ class NewsViewController: UIViewController {
         let table = UITableView()
         table.register(NewsStoryTableViewCell.self, forCellReuseIdentifier: NewsStoryTableViewCell.identifier)
         table.register(NewsHeaderView.self, forHeaderFooterViewReuseIdentifier: NewsHeaderView.identifier)
-        table.backgroundColor = .gray
+        table.backgroundColor = .secondarySystemBackground
         return table
     }()
     

@@ -28,7 +28,7 @@ class StockListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .secondarySystemBackground
         setUpSearchController()
         setUpTableView()
         setUpWatchListData()
@@ -122,7 +122,7 @@ class StockListViewController: UIViewController {
     private func setupFloatingPanel() {
         let vc = NewsViewController(type: .topStories)
         let panel = FloatingPanelController(delegate: self)
-        panel.surfaceView.backgroundColor = .systemBackground
+        panel.surfaceView.backgroundColor = .secondarySystemBackground
         panel.set(contentViewController: vc)
         panel.addPanel(toParent: self)
         panel.track(scrollView: vc.tableView)

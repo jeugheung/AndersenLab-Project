@@ -31,7 +31,6 @@ class NewsHeaderView: UITableViewHeaderFooterView {
     let button: UIButton = {
         let button = UIButton()
         button.setTitle("+ Watchlist", for: .normal)
-        button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 6
         button.layer.masksToBounds = true

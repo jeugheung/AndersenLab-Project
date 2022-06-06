@@ -119,6 +119,7 @@ class StockDetailsViewController: UIViewController {
             viewModels.append(.init(name: "52W Return", value: "\(metrics.AnnualWeekPriceReturnDaily)"))
             viewModels.append(.init(name: "Beta", value: "\(metrics.beta)"))
             viewModels.append(.init(name: "10D Vol.", value: "\(metrics.TenDayAverageTradingVolume)"))
+            viewModels.append(.init(name: "52L Date", value: "\(metrics.AnnualWeekLowDate)"))
         }
         let change = getChangePercentage(symbol: symbol, data: candleStickData)
        

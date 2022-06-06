@@ -17,7 +17,6 @@
 		C93E651B283EEADC0099224F /* StockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E651A283EEADC0099224F /* StockDetailsViewController.swift */; };
 		C93E651D283EF1320099224F /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E651C283EF1320099224F /* APICaller.swift */; };
 		C93E651F283EF15D0099224F /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E651E283EF15D0099224F /* PersistanceManager.swift */; };
-		C93E6521283EF17F0099224F /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6520283EF17F0099224F /* HapticsManager.swift */; };
 		C9EABC692844E055005FA525 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC682844E055005FA525 /* Extensions.swift */; };
 		C9EABC6B2844E572005FA525 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC6A2844E572005FA525 /* SearchTableViewCell.swift */; };
 		C9EABC6D2844F31E005FA525 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABC6C2844F31E005FA525 /* SearchResponse.swift */; };
@@ -48,7 +47,6 @@
 		C93E651A283EEADC0099224F /* StockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailsViewController.swift; sourceTree = "<group>"; };
 		C93E651C283EF1320099224F /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		C93E651E283EF15D0099224F /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
-		C93E6520283EF17F0099224F /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		C9EABC682844E055005FA525 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9EABC6A2844E572005FA525 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		C9EABC6C2844F31E005FA525 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 			children = (
 				C93E651C283EF1320099224F /* APICaller.swift */,
 				C93E651E283EF15D0099224F /* PersistanceManager.swift */,
-				C93E6520283EF17F0099224F /* HapticsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C93E6521283EF17F0099224F /* HapticsManager.swift in Sources */,
 				C93E651B283EEADC0099224F /* StockDetailsViewController.swift in Sources */,
 				C9EABCAD284E306C005FA525 /* MetricCollectionViewCell.swift in Sources */,
 				C93E6519283EEACA0099224F /* SearchViewController.swift in Sources */,

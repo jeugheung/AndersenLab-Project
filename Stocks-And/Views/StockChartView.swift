@@ -7,7 +7,6 @@
 
 import UIKit
 import Charts
-import SwiftUI
 
 class StockChartView: UIView {
     
@@ -27,6 +26,9 @@ class StockChartView: UIView {
         chartView.legend.enabled = false
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
+        
+        
+        
         return chartView
     }()
     
@@ -63,6 +65,8 @@ class StockChartView: UIView {
         dataSet.drawFilledEnabled = true
         dataSet.drawIconsEnabled = false
         dataSet.drawCirclesEnabled = false
+        dataSet.setColor(viewModel.fillColor)
+        
         let data = LineChartData(dataSet: dataSet)
         chartView.data = data
     }

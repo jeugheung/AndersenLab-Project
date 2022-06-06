@@ -31,6 +31,7 @@
 		C9EABCA7284D3322005FA525 /* StockChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCA6284D3322005FA525 /* StockChartView.swift */; };
 		C9EABCA9284E2366005FA525 /* FinancialMetricsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCA8284E2365005FA525 /* FinancialMetricsResponse.swift */; };
 		C9EABCAB284E28C0005FA525 /* StockDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCAA284E28C0005FA525 /* StockDetailHeaderView.swift */; };
+		C9EABCAD284E306C005FA525 /* MetricCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCAC284E306B005FA525 /* MetricCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C9EABCA6284D3322005FA525 /* StockChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockChartView.swift; sourceTree = "<group>"; };
 		C9EABCA8284E2365005FA525 /* FinancialMetricsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialMetricsResponse.swift; sourceTree = "<group>"; };
 		C9EABCAA284E28C0005FA525 /* StockDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailHeaderView.swift; sourceTree = "<group>"; };
+		C9EABCAC284E306B005FA525 /* MetricCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				C9EABC98284B2116005FA525 /* NewsStoryTableViewCell.swift */,
 				C9EABCA4284D2DDE005FA525 /* WatchListTableViewCell.swift */,
 				C9EABCA6284D3322005FA525 /* StockChartView.swift */,
+				C9EABCAC284E306B005FA525 /* MetricCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				C93E6521283EF17F0099224F /* HapticsManager.swift in Sources */,
 				C93E651B283EEADC0099224F /* StockDetailsViewController.swift in Sources */,
+				C9EABCAD284E306C005FA525 /* MetricCollectionViewCell.swift in Sources */,
 				C93E6519283EEACA0099224F /* SearchViewController.swift in Sources */,
 				C93E6502283EE8600099224F /* StockListViewController.swift in Sources */,
 				C9EABC97284AC432005FA525 /* NewsStoryModel.swift in Sources */,

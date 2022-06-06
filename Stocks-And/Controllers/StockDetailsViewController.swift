@@ -73,6 +73,18 @@ class StockDetailsViewController: UIViewController {
         
         if candleStickData.isEmpty {
             group.enter()
+            APICaller.shared.marketData(for: symbol) { [weak self] result in
+                defer {
+                    group.leave()
+                }
+                
+                switch result {
+                case .success(let response):
+                    self?.candleStickData = response.candleSticks
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
         
         group.enter()
@@ -99,8 +111,6 @@ class StockDetailsViewController: UIViewController {
     private func renderChart() {
         let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
         
-        headerView.backgroundColor = .link
-        
         var viewModels = [MetricCollectionViewCell.ViewModel]()
         
         if let metrics = metrics {
@@ -111,7 +121,7 @@ class StockDetailsViewController: UIViewController {
             viewModels.append(.init(name: "10D Vol.", value: "\(metrics.TenDayAverageTradingVolume)"))
         }
        
-        headerView.configure(chartViewModel: .init(data: [], showLegend: false, showAxis: false), metricViewModels: viewModels)
+        headerView.configure(chartViewModel: .init(data: candleStickData.reversed().map { $0.close }, showLegend: true, showAxis: true), metricViewModels: viewModels)
         tableView.tableHeaderView = headerView
     }
     

@@ -32,6 +32,7 @@
 		C9EABCA9284E2366005FA525 /* FinancialMetricsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCA8284E2365005FA525 /* FinancialMetricsResponse.swift */; };
 		C9EABCAB284E28C0005FA525 /* StockDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCAA284E28C0005FA525 /* StockDetailHeaderView.swift */; };
 		C9EABCAD284E306C005FA525 /* MetricCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EABCAC284E306B005FA525 /* MetricCollectionViewCell.swift */; };
+		C9EABCB0284E9D2E005FA525 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = C9EABCAF284E9D2E005FA525 /* Charts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9EABC9C284B47F5005FA525 /* SDWebImage in Frameworks */,
+				C9EABCB0284E9D2E005FA525 /* Charts in Frameworks */,
 				C9EABC93284AACFF005FA525 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +191,7 @@
 			packageProductDependencies = (
 				C9EABC92284AACFF005FA525 /* FloatingPanel */,
 				C9EABC9B284B47F5005FA525 /* SDWebImage */,
+				C9EABCAF284E9D2E005FA525 /* Charts */,
 			);
 			productName = "Stocks-And";
 			productReference = C93E64FA283EE8600099224F /* Stocks-And.app */;
@@ -221,6 +224,7 @@
 			packageReferences = (
 				C9EABC91284AACFF005FA525 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 				C9EABC9A284B47F5005FA525 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C9EABCAE284E9D2E005FA525 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = C93E64FB283EE8600099224F /* Products */;
 			projectDirPath = "";
@@ -498,6 +502,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		C9EABCAE284E9D2E005FA525 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -510,6 +522,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C9EABC9A284B47F5005FA525 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		C9EABCAF284E9D2E005FA525 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9EABCAE284E9D2E005FA525 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -23,6 +23,8 @@ class StockListViewController: UIViewController {
         table.register(WatchListTableViewCell.self, forCellReuseIdentifier: WatchListTableViewCell.identifier)
         return table
     }()
+    
+    private var observer: NSObjectProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class StockListViewController: UIViewController {
         setUpWatchListData()
         setupFloatingPanel()
         setUpTitleView()
+        setUpObserver()
     }
     
     override func viewDidLayoutSubviews() {
@@ -40,12 +43,19 @@ class StockListViewController: UIViewController {
     }
     
     // MARK: - Private
+    private func setUpObserver() {
+        observer = NotificationCenter.default.addObserver(forName: .didAddToWatchList, object: nil, queue: .main) { [weak self] _ in
+            self?.viewModels.removeAll()
+            self?.setUpWatchListData()
+        }
+    }
+    
     private func setUpWatchListData() {
         let symbols = PersistanceManager.shared.watchList
         
         let group = DispatchGroup()
         
-        for symbol in symbols {
+        for symbol in symbols where watchListMap[symbol] == nil {
             group.enter()
             APICaller.shared.marketData(for: symbol) { [weak self] result in
                 defer {
@@ -170,7 +180,7 @@ extension StockListViewController: SearchViewControllerDelegate {
         print("Did select: \(searchResult.displaySymbol)")
         
         navigationItem.searchController?.searchBar.resignFirstResponder()
-        let vc = StockDetailsViewController()
+        let vc = StockDetailsViewController(symbol: searchResult.displaySymbol, companyName: searchResult.description, candleStickData: [])
         let navVC = UINavigationController(rootViewController: vc)
         vc.title = searchResult.description
         present(navVC, animated: true)
@@ -222,6 +232,10 @@ extension StockListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let viewModel = viewModels[indexPath.row]
+        let vc = StockDetailsViewController(symbol: viewModel.symbol, companyName: viewModel.companyName, candleStickData: watchListMap[viewModel.symbol] ?? [])
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
     }
 }
 

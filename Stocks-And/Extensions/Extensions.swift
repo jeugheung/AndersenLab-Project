@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+extension Notification.Name {
+    static let didAddToWatchList = Notification.Name("didAddToWatchList")
+}
+
 extension NumberFormatter {
     static let percentFormatter: NumberFormatter = {
        let formatter = NumberFormatter()

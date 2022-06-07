@@ -63,7 +63,7 @@ class NewsViewController: UIViewController {
     }
     
     private func fetchNews() {
-        APICaller.shared.news(for: type) { [weak self] result in
+        NetworkService.shared.news(for: type) { [weak self] result in
             switch result {
             case .success(let stories):
                 DispatchQueue.main.async {

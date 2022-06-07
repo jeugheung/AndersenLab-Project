@@ -51,13 +51,13 @@ class StockListViewController: UIViewController {
     }
     
     private func setUpWatchListData() {
-        let symbols = PersistanceManager.shared.watchList
+        let symbols = UserDefaultsService.shared.watchList
         
         let group = DispatchGroup()
         
         for symbol in symbols where watchListMap[symbol] == nil {
             group.enter()
-            APICaller.shared.marketData(for: symbol) { [weak self] result in
+            NetworkService.shared.marketData(for: symbol) { [weak self] result in
                 defer {
                     group.leave()
                 }
@@ -158,7 +158,7 @@ extension StockListViewController: UISearchResultsUpdating {
         searchTimer?.invalidate()
         
         searchTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { _ in
-            APICaller.shared.search(query: query) { result in
+            NetworkService.shared.search(query: query) { result in
                 switch result {
                 case .success(let response):
                     DispatchQueue.main.async {
@@ -222,7 +222,7 @@ extension StockListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.beginUpdates()
-            PersistanceManager.shared.removeFromWatchList(symbol: viewModels[indexPath.row].symbol)
+            UserDefaultsService.shared.removeFromWatchList(symbol: viewModels[indexPath.row].symbol)
             viewModels.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .automatic)

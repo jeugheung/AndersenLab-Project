@@ -73,7 +73,7 @@ class StockDetailsViewController: UIViewController {
         
         if candleStickData.isEmpty {
             group.enter()
-            APICaller.shared.marketData(for: symbol) { [weak self] result in
+            NetworkService.shared.marketData(for: symbol) { [weak self] result in
                 defer {
                     group.leave()
                 }
@@ -88,7 +88,7 @@ class StockDetailsViewController: UIViewController {
         }
         
         group.enter()
-        APICaller.shared.financialMetrics(for: symbol) { [weak self] result in
+        NetworkService.shared.financialMetrics(for: symbol) { [weak self] result in
             defer {
                 group.leave()
             }
@@ -142,7 +142,7 @@ class StockDetailsViewController: UIViewController {
     }
     
     private func fetchNews() {
-        APICaller.shared.news(for: .company(symbol: symbol)) { [weak self] result in
+        NetworkService.shared.news(for: .company(symbol: symbol)) { [weak self] result in
             switch result {
             case .success(let stories):
                 DispatchQueue.main.async {
@@ -180,7 +180,7 @@ extension StockDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return nil
         }
         header.delegate = self
-        header.configure(with: .init(title: symbol.uppercased(), shouldShowAddButton: !PersistanceManager.shared.watchListContains(symbol: symbol)))
+        header.configure(with: .init(title: symbol.uppercased(), shouldShowAddButton: !UserDefaultsService.shared.watchListContains(symbol: symbol)))
         return header
     }
     
@@ -199,7 +199,7 @@ extension StockDetailsViewController: UITableViewDelegate, UITableViewDataSource
 extension StockDetailsViewController: NewsHeaderViewDelegate {
     func newsHeaderViewDidTapAddButton(_ headerView: NewsHeaderView) {
         headerView.button.isHidden = true
-        PersistanceManager.shared.addToWatchList(symbol: symbol, companyName: companyName)
+        UserDefaultsService.shared.addToWatchList(symbol: symbol, companyName: companyName)
         
         let alert = UIAlertController(title: "Added to stock list", message: "We have added \(companyName)", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))

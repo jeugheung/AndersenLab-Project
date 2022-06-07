@@ -1,5 +1,5 @@
 //
-//  APICaller.swift
+//  NetworkService.swift
 //  Stocks-And
 //
 //  Created by Andrey Kim on 26.05.2022.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class APICaller {
-    static let shared = APICaller()
+final class NetworkService {
+    static let shared = NetworkService()
     
     private struct Constants {
         static let apiKey = "caab792ad3ibg8178etg"
@@ -68,21 +68,16 @@ final class APICaller {
     
     private func url(for endpoint: Endpoint, queryParams: [String: String] = [:]) -> URL? {
         var urlString = Constants.baseUrl + endpoint.rawValue
-        /// add any parameters
         var queryItems = [URLQueryItem]()
         
         for (name, value) in queryParams {
             queryItems.append(.init(name: name, value: value))
         }
                 
-        /// add token
         queryItems.append(.init(name: "token", value: Constants.apiKey))
         
         let queryString = queryItems.map { "\($0.name)=\($0.value ?? "")" }.joined(separator: "&")
         urlString += "?" + queryString
-        
-        print("\n\(urlString)\n")
-        
         return URL(string: urlString)
     }
     

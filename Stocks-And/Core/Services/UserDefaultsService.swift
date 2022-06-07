@@ -1,5 +1,5 @@
 //
-//  PersistanceManager.swift
+//  UserDefaultsService.swift
 //  Stocks-And
 //
 //  Created by Andrey Kim on 26.05.2022.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-final class PersistanceManager {
-    static let shared = PersistanceManager()
+final class UserDefaultsService {
+    static let shared = UserDefaultsService()
     
     private let userDefaults: UserDefaults = .standard
     
@@ -22,6 +22,7 @@ final class PersistanceManager {
     }
     
     // MARK: - Public
+    
     public var watchList: [String] {
         if !hasOnboarded {
             userDefaults.set(true, forKey: "hasOnboarded")
@@ -53,14 +54,16 @@ final class PersistanceManager {
         userDefaults.set(newList, forKey: Constants.watchListKey)
     }
     
-    // MARK: - Public
+    // MARK: - Private
     
     private var hasOnboarded: Bool {
         return userDefaults.bool(forKey: Constants.onboardedKey)
     }
     
     private func setUpDefaults() {
-        let map: [String: String] = ["AAPL": "Apple inc", "MSFT": "Microsoft", "SNAP": "Snapchat"]
+        let map: [String: String] = ["AAPL": "Apple inc", "MSFT": "Microsoft", "SNAP": "Snapchat",
+                                     "NKE": "Nike inc", "NVDA": "Nvidia", "SBUX": "Starbucks",
+                                     "GE": "General Electric", "DIS": "Walt Disney"]
         
         let symbols = map.keys.map { $0 }
         userDefaults.set(symbols, forKey: Constants.watchListKey)

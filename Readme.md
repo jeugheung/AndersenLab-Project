@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <p align="center">
-     iOS application for browsing and observing stocks (pet project)
+     ##iOS application for browsing and observing stocks (pet project)
   </p>
 </p>
 

@@ -72,15 +72,12 @@ class NewsStoryTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         let imageSize: CGFloat = contentView.height/1.4
-        storyImageView.frame = CGRect(x: contentView.width-imageSize-10, y: (contentView.height-imageSize)/2, width: imageSize, height: imageSize)
-        
-        // Layout labels
         let availableWidth: CGFloat = contentView.width - separatorInset.left - imageSize - 15
-        dateLabel.frame = CGRect(x: separatorInset.left, y: contentView.height - 40, width: availableWidth, height: 40)
         
+        storyImageView.frame = CGRect(x: contentView.width-imageSize-10, y: (contentView.height-imageSize)/2, width: imageSize, height: imageSize)
+        dateLabel.frame = CGRect(x: separatorInset.left, y: contentView.height - 40, width: availableWidth, height: 40)
         sourceLabel.sizeToFit()
         sourceLabel.frame = CGRect(x: separatorInset.left, y: 4, width: availableWidth, height: sourceLabel.height)
-        
         headlineLabel.frame = CGRect(x: separatorInset.left, y: sourceLabel.bottom + 5, width: availableWidth, height: contentView.height - sourceLabel.bottom - dateLabel.height - 10)
     }
     

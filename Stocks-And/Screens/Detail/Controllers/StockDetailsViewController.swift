@@ -43,8 +43,6 @@ class StockDetailsViewController: UIViewController {
         setUpTable()
         fetchFinancialData()
         fetchNews()
-        
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -107,7 +105,6 @@ class StockDetailsViewController: UIViewController {
         }
     }
     
-    //////
     private func renderChart() {
         let headerView = StockDetailHeaderView(frame: CGRect(x: 0, y: 0, width: view.width, height: (view.width * 0.7) + 100))
         
@@ -128,7 +125,6 @@ class StockDetailsViewController: UIViewController {
     }
     
     private func getChangePercentage(symbol: String, data: [CandleStick]) -> Double {
-        //let today = Date()
         let latestDate = data[0].date
         guard let latestClose = data.first?.close,
             let priorClose = data.first(where: {

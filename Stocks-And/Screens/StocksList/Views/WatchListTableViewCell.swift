@@ -83,7 +83,6 @@ class WatchListTableViewCell: UITableViewCell {
         let yStart: CGFloat = (contentView.height - symbolLabel.height - nameLabel.height)/2
         
         symbolLabel.frame = CGRect(x: separatorInset.left, y: yStart, width: symbolLabel.width, height: symbolLabel.height)
-        
         nameLabel.frame = CGRect(x: separatorInset.left, y: symbolLabel.bottom, width: nameLabel.width, height: nameLabel.height)
         
         let currentWidth = max(max(priceLabel.width, changeLabel.width), StockListViewController.maxChangeWidth)

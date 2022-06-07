@@ -9,7 +9,6 @@ import UIKit
 
 protocol SearchViewControllerDelegate: AnyObject {
     func searchResultsViewControllerDidSelect(searchResult: SearchResults)
-
 }
 
 class SearchViewController: UIViewController {
@@ -41,15 +40,15 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    // MARK: - Public
-    
+        
     public func update(with results: [SearchResults]) {
         self.results = results
         tableView.isHidden = results.isEmpty
         tableView.reloadData()
     }
 }
+
+// MARK: - TableView
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

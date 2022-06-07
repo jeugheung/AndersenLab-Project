@@ -26,9 +26,6 @@ class StockChartView: UIView {
         chartView.legend.enabled = false
         chartView.leftAxis.enabled = false
         chartView.rightAxis.enabled = false
-        
-        
-        
         return chartView
     }()
     

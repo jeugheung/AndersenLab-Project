@@ -18,5 +18,4 @@ class SearchTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
-
 }

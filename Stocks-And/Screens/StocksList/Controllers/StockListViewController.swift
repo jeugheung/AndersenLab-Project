@@ -118,7 +118,6 @@ class StockListViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    
     private func setupFloatingPanel() {
         let vc = NewsViewController(type: .topStories)
         let panel = FloatingPanelController(delegate: self)
@@ -127,7 +126,6 @@ class StockListViewController: UIViewController {
         panel.addPanel(toParent: self)
         panel.track(scrollView: vc.tableView)
     }
-    
     
     private func setUpTitleView() {
         let titleView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: navigationController?.navigationBar.height ?? 100))
@@ -187,11 +185,15 @@ extension StockListViewController: SearchViewControllerDelegate {
     }
 }
 
+// MARK: - FloatingPanel
+
 extension StockListViewController: FloatingPanelControllerDelegate {
     func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
         navigationItem.titleView?.isHidden = fpc.state == .full
     }
 }
+
+// MARK: - TableView
 
 extension StockListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -69,5 +69,4 @@ class NewsHeaderView: UITableViewHeaderFooterView {
         label.text = viewModel.title
         button.isHidden = !viewModel.shouldShowAddButton
     }
-
 }

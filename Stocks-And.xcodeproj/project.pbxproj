@@ -104,11 +104,10 @@
 		C93E64FC283EE8600099224F /* Stocks-And */ = {
 			isa = PBXGroup;
 			children = (
-				C9EABCBF284F5906005FA525 /* Resources */,
-				C9EABCBE284F58F0005FA525 /* Screens */,
+				C93E6515283EE9D40099224F /* Application */,
 				C9EABCB1284F4DFA005FA525 /* Core */,
-				C93E6515283EE9D40099224F /* Appliation */,
-				C93E650B283EE8620099224F /* Info.plist */,
+				C9EABCBE284F58F0005FA525 /* Screens */,
+				C9EABCBF284F5906005FA525 /* Resources */,
 			);
 			path = "Stocks-And";
 			sourceTree = "<group>";
@@ -122,14 +121,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		C93E6515283EE9D40099224F /* Appliation */ = {
+		C93E6515283EE9D40099224F /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				C93E6508283EE8620099224F /* LaunchScreen.storyboard */,
 				C93E64FD283EE8600099224F /* AppDelegate.swift */,
 				C93E64FF283EE8600099224F /* SceneDelegate.swift */,
+				C93E650B283EE8620099224F /* Info.plist */,
+				C93E6508283EE8620099224F /* LaunchScreen.storyboard */,
 			);
-			path = Appliation;
+			path = Application;
 			sourceTree = "<group>";
 		};
 		C9EABC672844E037005FA525 /* Extensions */ = {
@@ -557,7 +557,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NXHNMN6U6U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Stocks-And/Info.plist";
+				INFOPLIST_FILE = "Stocks-And/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -586,7 +586,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NXHNMN6U6U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Stocks-And/Info.plist";
+				INFOPLIST_FILE = "Stocks-And/Application/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
